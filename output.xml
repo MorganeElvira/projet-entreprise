@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.7.1 on win32)" generated="20230517 17:54:49.956" rpa="false" schemaversion="3">
+<suite id="s1" name="Projet-Trello" source="C:\Users\DACIA LOGAN\Documents\VVVVVVVVVVVVVVVVVVV\GitHub\projet-entreprise\projet-trello.robot">
+<test id="s1-t1" name="Connexion échouée" line="9">
+<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
+<arg>https://trello.com/home</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230517 17:54:50.140" level="INFO">Opening browser 'chrome' to base url 'https://trello.com/home'.</msg>
+<msg timestamp="20230517 17:54:50.149" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230517 17:54:50.139" endtime="20230517 17:54:52.454"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230517 17:54:52.455" endtime="20230517 17:54:52.567"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>data:uuid:MJFtCCgVhXrVl7v9HA7EH_login</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230517 17:54:52.568" level="INFO">Clicking element 'data:uuid:MJFtCCgVhXrVl7v9HA7EH_login'.</msg>
+<status status="PASS" starttime="20230517 17:54:52.568" endtime="20230517 17:54:54.429"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:user</arg>
+<arg>morgane.elvira@gmmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 17:54:54.429" level="INFO">Typing text 'morgane.elvira@gmmail.com' into text field 'id:user'.</msg>
+<status status="PASS" starttime="20230517 17:54:54.429" endtime="20230517 17:54:54.507"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230517 17:54:54.508" level="INFO">Clicking button 'id:login'.</msg>
+<status status="PASS" starttime="20230517 17:54:54.508" endtime="20230517 17:54:54.552"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230517 17:54:56.560" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230517 17:54:54.552" endtime="20230517 17:54:56.560"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>sp_tOprAS5SWLrIFrUy9</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 17:54:56.561" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20230517 17:54:56.588" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230517 17:54:56.615" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230517 17:54:56.561" endtime="20230517 17:54:56.615"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>id:login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230517 17:54:56.615" level="INFO">Clicking button 'id:login'.</msg>
+<status status="PASS" starttime="20230517 17:54:56.615" endtime="20230517 17:54:56.662"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230517 17:54:58.668" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230517 17:54:56.662" endtime="20230517 17:54:58.669"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id:error</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230517 17:54:58.765" level="INFO">Element 'id:error' is displayed.</msg>
+<status status="PASS" starttime="20230517 17:54:58.670" endtime="20230517 17:54:58.765"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>class:quick-switch</arg>
+<arg>Il n'y a pas de compte</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230517 17:54:58.793" level="INFO">Element 'class:quick-switch' contains text 'Il n'y a pas de compte'.</msg>
+<status status="PASS" starttime="20230517 17:54:58.766" endtime="20230517 17:54:58.793"/>
+</kw>
+<status status="PASS" starttime="20230517 17:54:50.139" endtime="20230517 17:54:58.794"/>
+</test>
+<status status="PASS" starttime="20230517 17:54:49.958" endtime="20230517 17:54:58.795"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Projet-Trello">Projet-Trello</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
