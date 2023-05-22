@@ -44,7 +44,7 @@ Scenario 04 - Create a board
     Connexion    ${email}    ${password}
     Click Element    data:testid:create-board-tile
     Element Should Contain    data:testid:create-board-tile   Créer un tableau
-    Input Text    data:testid:create-board-title-input    test titre
+    Input Text    data:testid:create-board-title-input    To do list
     Sleep    2
     Click Button    data:testid:create-board-submit-button
 
@@ -52,6 +52,16 @@ Scenario 05 - Add lists
     Browser Setup
     Connexion    ${email}    ${password}
     Click Link    /b/IgKpIUYQ/test-titre
-    Click Element    class:js-add-list list-wrapper mod-add is-idle
+    Wait Until Element Is Visible    class:placeholder
+    Click Element    class:placeholder
+    # Add first list
+    Input Text    class:list-name-input    To do
+    Click Button    class:nch-button
+    # Add second list
+    Input Text    class:list-name-input    In progress
+    Click Button    class:nch-button
+    # Add third list
+    Input Text    class:list-name-input    Done
+    Click Button    class:nch-button
 
-    
+Scenario 06 - 
