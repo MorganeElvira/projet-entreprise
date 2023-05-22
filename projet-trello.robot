@@ -64,4 +64,15 @@ Scenario 05 - Add lists
     Input Text    class:list-name-input    Done
     Click Button    class:nch-button
 
-Scenario 06 - 
+Scenario 06 - Create a card
+    Browser Setup
+    Connexion    ${email}    ${password}
+    Click Link    /b/IgKpIUYQ/test-titre
+    Wait Until Element Is Visible    class:placeholder
+    Click Element    class:js-add-a-card
+    Wait Until Element Is Visible    class:list-card-composer-textarea
+    Input Text    class:list-card-composer-textarea    Connexion OK
+    Click Button    class:nch-button
+    Element Should Be Visible    class:list-card-title
+
+Scenario 07 - Editing a card
