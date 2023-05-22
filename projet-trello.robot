@@ -35,9 +35,9 @@ Scenario 03 - Create a workspace
     Maximize Browser Window
     Connexion    ${email}    ${password}
     Click Button    data:testid:header-create-menu-button
-    Wait Until Element Is Visible    data:testid:header-create-menu-button
-    Click Button    data:testid:header-create-team-button
     Wait Until Element Is Visible    data:testid:header-create-team-button
+    Click Button    data:testid:header-create-team-button
+    Wait Until Element Is Visible    class:yrkIKrxkTvj0rD
     Element Should Contain    class:yrkIKrxkTvj0rD    Créons un espace de travail
     Input Text    data:testid:header-create-team-name-input    Undefined
     Click Element    data:testid:header-create-team-type-input
