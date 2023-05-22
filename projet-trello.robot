@@ -35,10 +35,18 @@ Scenario 03 - Create a workspace
     Maximize Browser Window
     Connexion    ${email}    ${password}
     Click Button    data:testid:header-create-menu-button
-    Sleep    2
+    Wait Until Element Is Visible    data:testid:header-create-menu-button
     Click Button    data:testid:header-create-team-button
-    Sleep    2
+    Wait Until Element Is Visible    data:testid:header-create-team-button
     Element Should Contain    class:yrkIKrxkTvj0rD    Créons un espace de travail
     Input Text    data:testid:header-create-team-name-input    Undefined
     Click Element    data:testid:header-create-team-type-input
     Click Element    xpath://div[normalize-space()='Ingénierie/informatique']
+    Click Button    data:testid:header-create-team-submit-button
+    Wait Until Element Is Visible    data:testid:add-members-input
+    Input Text    data:testid:add-members-input    lyniebc@gmail.com
+    Click Button    data:testid:team-invite-submit-button
+
+Scenario 04 - Create a board
+    Maximize Browser Window
+    
