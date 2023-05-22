@@ -10,5 +10,9 @@ Connexion
     Sleep    2
     Input Password    id:password    ${password}
     Click Button    id:login-submit
-    Sleep    3
+    Wait Until Element Is Visible    data:testid:header-member-menu-button
     Location Should Be    https://trello.com/u/skullyshepard/boards
+
+Browser Setup
+    Open Browser    https://trello.com/    chrome
+    Maximize Browser Window
