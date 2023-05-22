@@ -1,19 +1,45 @@
 *** Settings ***
 Library    SeleniumLibrary
-Test Setup    Open Browser    https://trello.com/home    chrome
+Test Setup    Open Browser    https://trello.com/    chrome
+Resource    keywords.robot
 
 *** Variables ***
-${userEmail}    morgane.elvira@gmail.com
+${email}    skullyshepard@gmail.com
+${password}    _R0swoD=WLwRl+e##ego
 
 *** Test Cases ***
-Connexion échouée
+Scenario 01 - Connexion KO
     Maximize Browser Window
     Click Element    data:uuid:MJFtCCgVhXrVl7v9HA7EH_login
-    Input Text    id:user    morgane.elvira@gmmail.com
+    Input Text    id:user    skullyshepard@gmmail.com
     Click Button    id:login
     Sleep    2
-    Input Password    id:password    sp_tOprAS5SWLrIFrUy9
+    Input Password    id:password    ${password}
     Click Button    id:login
     Sleep    2
     Element Should Be Visible    id:error
     Element Should contain    class:quick-switch    Il n'y a pas de compte
+
+Scenario 02 - Connexion OK
+    Maximize Browser Window
+    Click Element    data:uuid:MJFtCCgVhXrVl7v9HA7EH_login
+    Input Text    id:user    ${email}
+    Click Button    id:login
+    Sleep    2
+    Input Password    id:password    ${password}
+    Click Button    id:login-submit
+    Sleep    3
+    Location Should Be    https://trello.com/u/skullyshepard/boards
+
+Scenario 03 - Create a workspace
+    Maximize Browser Window
+    Connexion    ${email}    ${password}
+    Click Button    data:testid:header-create-menu-button
+    Sleep    2
+    Click Button    data:testid:header-create-team-button
+    Sleep    2
+    Element Should Contain    class:yrkIKrxkTvj0rD    Créons un espace de travail
+    Input Text    data:testid:header-create-team-name-input    Undefined
+    Click Element    data:testid:header-create-team-type-input
+    Click Element    class: css-1og2rpm    Ingénierie/informatique
+    
