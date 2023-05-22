@@ -41,5 +41,4 @@ Scenario 03 - Create a workspace
     Element Should Contain    class:yrkIKrxkTvj0rD    Créons un espace de travail
     Input Text    data:testid:header-create-team-name-input    Undefined
     Click Element    data:testid:header-create-team-type-input
-    Click Element    class: css-1og2rpm    Ingénierie/informatique
-    
+    Click Element    xpath://div[normalize-space()='Ingénierie/informatique']
