@@ -82,16 +82,16 @@ Scenario 07 - Editing a card
     Wait Until Element Is Visible    class:list-card-details
     Click Element    class:list-card-details
     Wait Until Element Is Visible    class:card-detail-window
-    #Click Element    class:subscribe-detail-button
-    #Element Should Be Visible    class:icon-check
-    #Click Element    class:description-fake-text-area
-    #Wait Until Element Is Visible    id:ak-editor-textarea
-    #Input Text    id:ak-editor-textarea    Writing a test for connexion in website Trello
-    #Element Should Be Visible    id:ak-editor-textarea
-    #Element Should Contain    id:ak-editor-textarea    Writing a test for connexion in website Trello
+    Click Element    class:subscribe-detail-button
+    Element Should Be Visible    class:icon-check
+    Click Element    class:description-fake-text-area
+    Wait Until Element Is Visible    id:ak-editor-textarea
+    Input Text    id:ak-editor-textarea    Writing a test for connexion in website Trello
+    Element Should Be Visible    id:ak-editor-textarea
+    Element Should Contain    id:ak-editor-textarea    Writing a test for connexion in website Trello
     Click Element    class:js-change-card-members
     Wait Until Element Is Visible    class:pop-over-content
-    #Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(1) a.name.js-select-member
-    #Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(2) a.name.js-select-member
+    Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(1) a.name.js-select-member
+    Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(2) a.name.js-select-member
     Element Should Be Visible    data:idmem:646b7d2a4b96e4ce9f7606d9
     Element Should Be Visible    data:idmem:646b1cd4347fb3e039504135
