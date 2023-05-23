@@ -43,16 +43,32 @@ Scenario 03 - Create a workspace
 Scenario 04 - Create a board
     Browser Setup
     Connexion    ${email}    ${password}
+    Wait Until Element Is Visible    data:testid:create-board-tile
     Click Element    data:testid:create-board-tile
     Element Should Contain    data:testid:create-board-tile   Créer un tableau
-    Input Text    data:testid:create-board-title-input    To do list
+    Input Text    class:nch-textfield__input    To do list
     Sleep    2
     Click Button    data:testid:create-board-submit-button
+    # delete existing lists
+    Wait Until Element Is Visible    id:board
+    # Delete first list
+    Click Element    class:list-header-extras
+    Wait Until Element Is Visible    class:js-close-list
+    Click Element    class:js-close-list
+    # Delete second list
+    Click Element    class:list-header-extras
+    Wait Until Element Is Visible    class:js-close-list
+    Click Element    class:js-close-list
+    # Delete third list
+    Click Element    class:list-header-extras
+    Wait Until Element Is Visible    class:js-close-list
+    Click Element    class:js-close-list
+
 
 Scenario 05 - Add lists
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/IgKpIUYQ/test-titre    
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:placeholder
     # Add first list
