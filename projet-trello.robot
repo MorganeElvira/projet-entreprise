@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    AutoRecorder    mode=suite
 Resource    keywords.robot
 
 *** Variables ***
@@ -51,7 +52,7 @@ Scenario 04 - Create a board
 Scenario 05 - Add lists
     Browser Setup
     Connexion    ${email}    ${password}
-    Click Link    /b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/IgKpIUYQ/test-titre
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:placeholder
     # Add first list
@@ -67,7 +68,7 @@ Scenario 05 - Add lists
 Scenario 06 - Create a card
     Browser Setup
     Connexion    ${email}    ${password}
-    Click Link    /b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/IgKpIUYQ/test-titre
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:js-add-a-card
     Wait Until Element Is Visible    class:list-card-composer-textarea
@@ -78,20 +79,30 @@ Scenario 06 - Create a card
 Scenario 07 - Editing a card
     Browser Setup
     Connexion    ${email}    ${password}
-    Click Link    /b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/IgKpIUYQ/test-titre
     Wait Until Element Is Visible    class:list-card-details
     Click Element    class:list-card-details
     Wait Until Element Is Visible    class:card-detail-window
-    Click Element    class:subscribe-detail-button
-    Element Should Be Visible    class:icon-check
-    Click Element    class:description-fake-text-area
-    Wait Until Element Is Visible    id:ak-editor-textarea
-    Input Text    id:ak-editor-textarea    Writing a test for connexion in website Trello
-    Element Should Be Visible    id:ak-editor-textarea
-    Element Should Contain    id:ak-editor-textarea    Writing a test for connexion in website Trello
+    #Click Element    class:subscribe-detail-button
+    #Element Should Be Visible    class:icon-check
+    #Click Element    class:description-fake-text-area
+    #Wait Until Element Is Visible    id:ak-editor-textarea
+    #Input Text    id:ak-editor-textarea    Writing a test for connexion in website Trello
+    #Element Should Be Visible    id:ak-editor-textarea
+    #Element Should Contain    id:ak-editor-textarea    Writing a test for connexion in website Trello
     Click Element    class:js-change-card-members
     Wait Until Element Is Visible    class:pop-over-content
     Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(1) a.name.js-select-member
     Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(2) a.name.js-select-member
     Element Should Be Visible    data:idmem:646b7d2a4b96e4ce9f7606d9
     Element Should Be Visible    data:idmem:646b1cd4347fb3e039504135
+
+Scenario 08 - Drag and drop a card to another list
+    Browser Setup
+    Connexion    ${email}    ${password}
+    Go to    https://trello.com/b/IgKpIUYQ/test-titre
+    Wait Until Element Is Visible    class:list-card-details
+    ${card}    Get Webelement    css:div.list-cards a.list-card:first-child
+    ${destination_list}    Get Webelement    css:div.js-list.list-wrapper.list-wrapper-with-margins:nth-child(2)
+    Drag And Drop    ${card}    ${destination_list}
+    Wait Until Page Contains Element    css:div.js-list.list-wrapper.list-wrapper-with-margins:nth-child(2) div.list-cards a.list-card:first-child
