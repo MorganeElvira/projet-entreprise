@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    AutoRecorder    mode=suite
+#Library    AutoRecorder    mode=suite
 Resource    keywords.robot
 
 *** Variables ***
@@ -32,7 +32,7 @@ Scenario 03 - Create a workspace
     Click Button    data:testid:header-create-team-button
     Wait Until Element Is Visible    class:yrkIKrxkTvj0rD
     Element Should Contain    class:yrkIKrxkTvj0rD    Créons un espace de travail
-    Input Text    data:testid:header-create-team-name-input    Undefined
+    Input Text    data:testid:header-create-team-name-input    Pixel Test
     Click Element    data:testid:header-create-team-type-input
     Click Element    xpath://div[normalize-space()='Ingénierie/informatique']
     Click Button    data:testid:header-create-team-submit-button
@@ -65,14 +65,20 @@ Scenario 05 - Add lists
     Input Text    class:list-name-input    Done
     Click Button    class:nch-button
 
-Scenario 06 - Create a card
+Scenario 06 - Create cards
     Browser Setup
     Connexion    ${email}    ${password}
     Go To    https://trello.com/b/IgKpIUYQ/test-titre
+    # First card
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:js-add-a-card
     Wait Until Element Is Visible    class:list-card-composer-textarea
-    Input Text    class:list-card-composer-textarea    Connexion OK
+    Input Text    class:list-card-composer-textarea    First card creation
+    Click Button    class:nch-button
+    Element Should Be Visible    class:list-card-title
+    # Second card
+    Wait Until Element Is Visible    class:list-card-composer-textarea
+    Input Text    class:list-card-composer-textarea    Second card creation
     Click Button    class:nch-button
     Element Should Be Visible    class:list-card-title
 
@@ -83,19 +89,20 @@ Scenario 07 - Editing a card
     Wait Until Element Is Visible    class:list-card-details
     Click Element    class:list-card-details
     Wait Until Element Is Visible    class:card-detail-window
-    #Click Element    class:subscribe-detail-button
-    #Element Should Be Visible    class:icon-check
-    #Click Element    class:description-fake-text-area
-    #Wait Until Element Is Visible    id:ak-editor-textarea
-    #Input Text    id:ak-editor-textarea    Writing a test for connexion in website Trello
-    #Element Should Be Visible    id:ak-editor-textarea
-    #Element Should Contain    id:ak-editor-textarea    Writing a test for connexion in website Trello
+    Click Element    class:subscribe-detail-button
+    Element Should Be Visible    class:icon-check
+    Click Element    class:description-content
+    Wait Until Element Is Visible    id:ak-editor-textarea
+    Input Text    id:ak-editor-textarea    Writing a test for card edition in Trello website
+    Element Should Be Visible    id:ak-editor-textarea
+    Element Should Contain    id:ak-editor-textarea    Writing a test for card edition in Trello website
     Click Element    class:js-change-card-members
     Wait Until Element Is Visible    class:pop-over-content
     Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(1) a.name.js-select-member
     Click Element    css:ul.pop-over-member-list li.item.js-member-item:nth-child(2) a.name.js-select-member
     Element Should Be Visible    data:idmem:646b7d2a4b96e4ce9f7606d9
     Element Should Be Visible    data:idmem:646b1cd4347fb3e039504135
+    Sleep    2
 
 Scenario 08 - Drag and drop a card to another list
     Browser Setup
