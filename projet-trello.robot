@@ -68,7 +68,7 @@ Scenario 04 - Create a board
 Scenario 05 - Add lists
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/IgKpIUYQ/test-titre    
+    Go To    https://trello.com/b/qNFiFS7n/to-do-list 
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:placeholder
     # Add first list
@@ -84,7 +84,7 @@ Scenario 05 - Add lists
 Scenario 06 - Create cards
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/qNFiFS7n/to-do-list
     # First card
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:js-add-a-card
@@ -101,7 +101,7 @@ Scenario 06 - Create cards
 Scenario 07 - Editing a card
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/IgKpIUYQ/test-titre
+    Go To    https://trello.com/b/qNFiFS7n/to-do-list
     Wait Until Element Is Visible    class:list-card-details
     Click Element    class:list-card-details
     Wait Until Element Is Visible    class:card-detail-window
@@ -123,7 +123,7 @@ Scenario 07 - Editing a card
 Scenario 08 - Drag and drop a card to another list
     Browser Setup
     Connexion    ${email}    ${password}
-    Go to    https://trello.com/b/IgKpIUYQ/test-titre
+    Go to    https://trello.com/b/qNFiFS7n/to-do-list
     Wait Until Element Is Visible    class:list-card-details
     ${card}    Get Webelement    css:div.list-cards a.list-card:first-child
     ${destination_list}    Get Webelement    css:div.js-list.list-wrapper.list-wrapper-with-margins:nth-child(2)
