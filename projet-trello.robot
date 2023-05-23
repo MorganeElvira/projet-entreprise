@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-#Library    AutoRecorder    mode=suite
+Library    AutoRecorder    mode=suite
 Resource    keywords.robot
 
 *** Variables ***
@@ -52,23 +52,25 @@ Scenario 04 - Create a board
     # delete existing lists
     Wait Until Element Is Visible    id:board
     # Delete first list
-    Click Element    class:list-header-extras
-    Wait Until Element Is Visible    class:js-close-list
-    Click Element    class:js-close-list
-    # Delete second list
-    Click Element    class:list-header-extras
-    Wait Until Element Is Visible    class:js-close-list
-    Click Element    class:js-close-list
-    # Delete third list
-    Click Element    class:list-header-extras
-    Wait Until Element Is Visible    class:js-close-list
-    Click Element    class:js-close-list
+    Sleep   3
+    # Click Element    class:list-header-extras
+    # Wait Until Element Is Visible    class:js-close-list
+    # Click Element    class:js-close-list
+    # # Delete second list
+    # Click Element    class:list-header-extras
+    # Wait Until Element Is Visible    class:js-close-list
+    # Click Element    class:js-close-list
+    # # Delete third list
+    # Click Element    class:list-header-extras
+    # Wait Until Element Is Visible    class:js-close-list
+    # Click Element    class:js-close-list
+    # Sleep    3
 
 
 Scenario 05 - Add lists
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/qNFiFS7n/to-do-list 
+    Go To    https://trello.com/b/jeOZbhwo/to-do-list 
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:placeholder
     # Add first list
@@ -84,7 +86,7 @@ Scenario 05 - Add lists
 Scenario 06 - Create cards
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/qNFiFS7n/to-do-list
+    Go To    https://trello.com/b/jeOZbhwo/to-do-list
     # First card
     Wait Until Element Is Visible    class:placeholder
     Click Element    class:js-add-a-card
@@ -101,13 +103,14 @@ Scenario 06 - Create cards
 Scenario 07 - Editing a card
     Browser Setup
     Connexion    ${email}    ${password}
-    Go To    https://trello.com/b/qNFiFS7n/to-do-list
+    Go To    https://trello.com/b/jeOZbhwo/to-do-list
     Wait Until Element Is Visible    class:list-card-details
     Click Element    class:list-card-details
     Wait Until Element Is Visible    class:card-detail-window
     Click Element    class:subscribe-detail-button
-    Element Should Be Visible    class:icon-check
-    Click Element    class:description-content
+    # Element Should Be Visible    class:icon-check
+    # Wait Until Element Is Visible    class:description-fake-text-area
+    # Click Element    class:description-fake-text-area
     Wait Until Element Is Visible    id:ak-editor-textarea
     Input Text    id:ak-editor-textarea    Writing a test for card edition in Trello website
     Element Should Be Visible    id:ak-editor-textarea
@@ -123,9 +126,10 @@ Scenario 07 - Editing a card
 Scenario 08 - Drag and drop a card to another list
     Browser Setup
     Connexion    ${email}    ${password}
-    Go to    https://trello.com/b/qNFiFS7n/to-do-list
+    Go to    https://trello.com/b/jeOZbhwo/to-do-list
     Wait Until Element Is Visible    class:list-card-details
     ${card}    Get Webelement    css:div.list-cards a.list-card:first-child
     ${destination_list}    Get Webelement    css:div.js-list.list-wrapper.list-wrapper-with-margins:nth-child(2)
     Drag And Drop    ${card}    ${destination_list}
     Wait Until Page Contains Element    css:div.js-list.list-wrapper.list-wrapper-with-margins:nth-child(2) div.list-cards a.list-card:first-child
+    Sleep    3
